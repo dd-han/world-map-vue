@@ -81,12 +81,15 @@ export default {
   watch: {
     countryData () {
       this.renderMapCSS()
+      if (!this.countryColors && this.showColorBar) {
+        this.colorGradient()
+      }
     }
   },
   mounted () {
     document.body.appendChild(this.$data.node)
     this.renderMapCSS()
-    if (!this.countryColors) {
+    if (!this.countryColors && this.showColorBar) {
       this.colorGradient()
     }
   },
