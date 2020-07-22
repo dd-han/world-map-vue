@@ -2,7 +2,7 @@
 // decimal value to provide to the Chroma scale instance.
 const getColorScaleUnit = (min, max) => 1 / (max - min)
 
-const getMaxAndMinCountryDataValues = (countryData) => {
+export const getMaxAndMinCountryDataValues = (countryData) => {
   let min, max
 
   Object.keys(countryData).forEach((key) => {

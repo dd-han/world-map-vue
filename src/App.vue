@@ -10,6 +10,10 @@
       @mouseleave="onMouseLeave"
       @click="onClick"
     />
+    <Legend
+      :chroma="chromaScale"
+      :country-data="countryData"
+    />
     <transition name="fade">
       <div
         v-if="showOverlay"
@@ -27,6 +31,7 @@
 <script>
 import chroma from 'chroma-js'
 import Map from './Map'
+import Legend from './Legend'
 import {
   getDynamicMapCss,
   getCountryColorsMapCss,
@@ -36,7 +41,10 @@ import {
 
 export default {
   name: 'WorldMapVue',
-  components: { Map },
+  components: {
+    Map,
+    Legend
+  },
   props: {
     countryData: {
       type: Object,
@@ -51,6 +59,10 @@ export default {
       default: true
     },
     showColorBar: {
+      type: Boolean,
+      default: false
+    },
+    showLegend: {
       type: Boolean,
       default: false
     },
